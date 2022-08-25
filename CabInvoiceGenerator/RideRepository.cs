@@ -10,11 +10,11 @@ namespace CabInvoiceGenerator
     {
         Dictionary<string, List<Ride>> userRides = null;
 
-        public RideRepository()
+        public RideRepository()//this constructor will create a new dictionary
         {
             this.userRides = new Dictionary<string, List<Ride>>();
         }
-        public void AddRide(string userId, Ride[] rides)
+        public void AddRide(string userId, Ride[] rides) //this method will add user id and array of rides as key and value in dictionary
         {
             bool rideList = this.userRides.ContainsKey(userId);
             try
@@ -32,7 +32,7 @@ namespace CabInvoiceGenerator
             }
         }
 
-        public Ride[] getRides(string userId)
+        public Ride[] getRides(string userId)//this method is used to retrive the rides based on userid 
         {
             bool rideList = this.userRides.ContainsKey(userId);
             try

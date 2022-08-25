@@ -15,10 +15,10 @@ namespace CabInvoiceGenerator
         private readonly double MINIMUM_FARE;
 
         public InvoiceGenerator(RideType rideType)
-        {
+        {//this constructor is used to set values for MINIMUM_COST_PER_KM, COST_PER_TIME and MINIMUM_FARE as per the ride type
             this.rideType = rideType;
             this.rideRepository = new RideRepository();
-            try
+            try//try block is used to check if any exception occurs and if yes then goes to catch block
             {
                 if (rideType.Equals(RideType.PREMIUM))
                 {
@@ -34,13 +34,13 @@ namespace CabInvoiceGenerator
                 }
 
             }
-            catch (CabInvoiceException)
+            catch (CabInvoiceException) //if ride type is incorrect the below custom exception is thrown
             {
                 throw new CabInvoiceException(CabInvoiceException.ExceptionType.INVALID_RIDE_TYPE, "Invalid ride type");
             }
         }
 
-        public double CalculateFare(double distance, int time)
+        public double CalculateFare(double distance, int time) //this method is used to calculate the fare
         {
             double totalFare = 0;
             try
@@ -67,7 +67,7 @@ namespace CabInvoiceGenerator
         }
 
 
-        public InvoiceSummary CalculateFare(Ride[] rides)
+        public InvoiceSummary CalculateFare(Ride[] rides) //this method is used to calculate fare of multiple rides
         {
             double totalFare = 0;
             try
@@ -89,7 +89,7 @@ namespace CabInvoiceGenerator
             return new InvoiceSummary(rides.Length, totalFare);
         }
 
-        public InvoiceSummary GetInvoiceSummary(String userId)
+        public InvoiceSummary GetInvoiceSummary(String userId) //this method is used to calculate of multiple rides of provided userid
         {
             try
             {

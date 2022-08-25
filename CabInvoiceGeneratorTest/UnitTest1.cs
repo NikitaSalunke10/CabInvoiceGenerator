@@ -6,7 +6,7 @@ namespace CabInvoiceGeneratorTest
     {
         InvoiceGenerator invoiceGenerator = null;
         [Test]
-        public void GivenDistanceAndTimeShouldReturnTotalFare()
+        public void GivenDistanceAndTimeShouldReturnTotalFare()//this test case is used to check if fare matches with expected for normal ride
         {
             invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
             double distance = 2.0;
@@ -16,7 +16,7 @@ namespace CabInvoiceGeneratorTest
             Assert.AreEqual(expected, fare);
         }
         [Test]
-        public void GivenMultipleRideShouldReturnInvoiceSummary()
+        public void GivenMultipleRideShouldReturnInvoiceSummary()//this test case is used to check if fare or multiple rides matches with expected values for normal ride
         {
             invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
             Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 5) };
@@ -25,7 +25,7 @@ namespace CabInvoiceGeneratorTest
             Assert.AreEqual(summary, expectedSummary);
         }
         [Test]
-        public void GivenDistanceAndTimeShouldReturnTotalFareforPremium()
+        public void GivenDistanceAndTimeShouldReturnTotalFareforPremium()//this test case is used to check if fare matches with expected for premium ride
         {
             invoiceGenerator = new InvoiceGenerator(RideType.PREMIUM);
             double distance = 25;
@@ -35,7 +35,7 @@ namespace CabInvoiceGeneratorTest
             Assert.AreEqual(expected, fare);
         }
         [Test]
-        public void GivenMultipleRideShouldReturnInvoiceSummaryforPremium()
+        public void GivenMultipleRideShouldReturnInvoiceSummaryforPremium()//this test case is used to check if fare or multiple rides matches with expected values for premium ride
         {
             invoiceGenerator = new InvoiceGenerator(RideType.PREMIUM);
             Ride[] rides = { new Ride(10.0, 7), new Ride(15, 8) };//164,241
@@ -44,7 +44,7 @@ namespace CabInvoiceGeneratorTest
             Assert.AreEqual(summary, expectedSummary);
         }
         [Test]
-        public void GivenUserIdShouldReturnListOfRidesFromRepo()
+        public void GivenUserIdShouldReturnListOfRidesFromRepo() //this test case is used to check the rides store in repository matches with expected values
         {
             invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
             Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 5), new Ride(3.0, 5) };//25,6,35

@@ -11,7 +11,7 @@ namespace CabInvoiceGenerator
         private int numberOfRides;
         private double totalFare;
         private double averageFare;
-        public InvoiceSummary(int numberOfRides, double totalFare)
+        public InvoiceSummary(int numberOfRides, double totalFare)//this constructor is used to set values of numberOfRides, totalFare and averageFare
         {
             this.numberOfRides = numberOfRides;
             this.totalFare = totalFare;
